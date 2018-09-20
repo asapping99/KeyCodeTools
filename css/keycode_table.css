@@ -1,0 +1,30 @@
+body {
+    display: block;
+    line-height: 13px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-size: 13px;
+    font-family: Georgia, serif;
+}
+.title {
+    display: block;
+    line-height: 18px;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+#keycode_table {
+    margin: 20px auto;
+    border: 1px solid #ddd;
+}
+#keycode_table tr.keycode_tr {
+    margin: 0px;
+    padding: 0px;
+}
+#keycode_table td.keycode_td {
+    margin: 0px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
