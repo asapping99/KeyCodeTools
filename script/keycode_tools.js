@@ -8,7 +8,6 @@
 		ALT: 18,
 		PAUSEBREAK: 19,
 		CAPSLOOK: 20,
-		KO_EN: 21,
 		ZH: 25,
 		ESC: 27,
 		SPACE: 32,
@@ -35,7 +34,6 @@
 		NUM9: 57,
 		
 		SEMICOLON: 59,
-		EQUAL: 61,
 		A: 65,
 		B: 66,
 		C: 67,
@@ -99,27 +97,69 @@
 		NUMLOCK: 144,
 		SCROLL_LOCK: 145,
 		
+		EQUAL: 187,
 		REST: 188,
 		COMMA: 190,
 		SLASH: 191,
 		GRAVE: 192,
+
+		KO_EN_OPERA: 197,
 		
 		BRACKETS_LEFT: 219,
 		BACKSLASH: 220,
 		BRACKETS_RIGHT: 221,
-		QUOT: 222		
+		QUOT: 222,
+
+		KO_EN: 229
 	};
 
 	root.KeyCodeTools = factory(root, { KeyCode: KeyCode });
 }(this, function(root, KeyCodeTools) {
 	
-	KeyCodeTools.tool = {
-		checkNumber: function(key) {
-			if ((key >= KeyCodeTools.KeyCode.NUM0 && key <= KeyCodeTools.KeyCode.NUM9) || 
-				(key >= KeyCodeTools.KeyCode.NUMLOCK0 && key <= KeyCodeTools.KeyCode.NUMLOCK9)) {
-				return true;
+	KeyCodeTools.tools = {
+		shiftPullKey: false,
+		ctrlPullKey: false,
+		altPullKey: false,
+		useEnglish: true,
+
+		checkInputBasic: function(key, event) {
+			return (key >= 8 && key <= 46) ||
+				   (key == 59 || key == 61) ||
+				   (key >= 91 && key <= 93) ||
+				   (key >= 106 && key <= 111) || 
+				   (key >= 112);
+		},
+		checkChangeLanguage: function(key) {
+			return (key == KeyCodeTools.KeyCode.KO_EN_OPERA || key == KeyCodeTools.KeyCode.KO_EN);
+		},
+		checkSpecialCharacter: function(key, event) {
+			return key == KeyCodeTools.KeyCode.SEMICOLON || 
+				   (key >= KeyCodeTools.KeyCode.NUMLOCK_ASTARISK && key <= KeyCodeTools.KeyCode.NUMLOCK_SLASH) ||
+				   (key >= KeyCodeTools.KeyCode.EQUAL && key <= KeyCodeTools.KeyCode.QUOT && key != KeyCodeTools.KeyCode.KO_EN_OPERA);
+		},
+		checkNumber: function(key, event) {
+			return (key >= KeyCodeTools.KeyCode.NUM0 && key <= KeyCodeTools.KeyCode.NUM9 && !event.shiftKey) || 
+				   (key >= KeyCodeTools.KeyCode.NUMLOCK0 && key <= KeyCodeTools.KeyCode.NUMLOCK9);
+		},
+		checkAlphabet: function(key, event) {
+			return (key >= KeyCodeTools.KeyCode.A && key <= KeyCodeTools.KeyCode.Z);
+		},
+		checkInputNumber: function(key, event) {
+			if (event && event.type == 'keyup') {
+				event.target.value = event.target.value.replace(/[^0-9]/g, "");
 			}
-			return false;
+			return this.checkNumber(key, event) || 
+				   (this.checkInputBasic(key, event) && 
+				   !this.checkSpecialCharacter(key, event) &&
+				   !this.checkChangeLanguage(key) &&
+				   key != KeyCodeTools.KeyCode.SPACE);
+		},
+		checkInputCharacter: function(key, event) {
+			return this.checkAlphabet(key, event) || 
+				   this.checkInputBasic(key, event);
+		},
+		checkEnter: function(key) {
+			return key == KeyCodeTools.KeyCode.ENTER;
 		}
 	};
 

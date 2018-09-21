@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>KeyCode Tools</title>
+	<link href="css/keycode_example.css" rel="stylesheet">
+	<script src="script/keycode_tools.js"></script>
+	<script src="script/keycode_example.js"></script>
+</head>
+<body>
+	<div class="title">KeyCode Tools</div>
+	<div class="keycodetools">
+		<div class="example_module example_module_number" data-name="number">
+			<div class="example_name"># Input Tag Number</div>
+			<div class="example_description">
+				Allows only numbers to be entered in the input form.
+			</div>
+			<div class="example_code example_number">
+				<div class="example_input_code">
+					<input type="text" id="input-number" data-event="onInputNumber"/>
+					<button id="input-number-submit" data-event="onSubmitNumber">Submit</button>
+				</div>
+				<div id="input-number-value" class="example_input_value"></div>
+				<div id="input-number-result" class="example_submit_result"></div>
+			</div>
+		</div>
+		<div class="example_module example_module_character" data-name="character">
+				<div class="example_name"># Input Tag Character</div>
+				<div class="example_description">
+					Allows only characters to be entered in the input form.
+				</div>
+				<div class="example_code example_character">
+					<div class="example_input_code">
+						<input type="text" id="input-character" data-event="onInputCharacter" />
+						<button id="input-character-submit">Submit</button>
+					</div>
+					<div id="input-character-value" class="example_input_value"></div>
+					<div id="input-character-result" class="example_submit_result"></div>
+				</div>
+			</div>
+	</div>
+</body>
+</html>

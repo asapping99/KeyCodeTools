@@ -1,0 +1,71 @@
+body {
+    display: block;
+    line-height: 13px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-size: 13px;
+    font-family: Georgia, serif;
+}
+.title {
+    display: block;
+    line-height: 18px;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+.example_module {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #000;
+}
+.example_name {
+    display: block;
+    line-height: 16px;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration-line: underline;
+}
+.example_description {
+    display: block;
+    line-height: 13px;
+    padding: 5px;
+    margin: 10px 0px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.example_code {
+    display: block;
+    line-height: 13px;
+    margin: 10px 0px;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #000;
+    background-color: #ddd;
+}
+.example_input_code input {
+    display: inline-block;
+}
+.example_input_value {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    color: #222;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.example_submit_result {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    color: #0000ff;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+#input-number {
+    ime-mode: disabled;
+    -ms-ime-mode: disabled;
+}
