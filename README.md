@@ -4,5 +4,7 @@ It is an open source Javascirpt for defining API KeyCode values constantly and p
 # KeyCode Table
 <!-- HTML CODE-->
 <div>
-<img src="https://github.com/asapping99/KeyCodes/blob/master/image/keycode_table.png" />
+<img src="./image/keycode_table.png" />
 </div>
+
+# KeyCodeTools Documentation
