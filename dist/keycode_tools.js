@@ -117,6 +117,11 @@
 }(this, function(root, KeyCodeTools) {
 	
 	KeyCodeTools.tools = {
+		shiftPullKey: false,
+		ctrlPullKey: false,
+		altPullKey: false,
+		useEnglish: true,
+
 		checkInputBasic: function(key, event) {
 			return (key >= 8 && key <= 46) ||
 				   (key == 59 || key == 61) ||

@@ -27,7 +27,7 @@
 				td.className = 'keycode_td';
 				td.innerText = key + ' = ' + value;
 				tr.appendChild(td);
-				if (col == 5) {
+				if (col == 5 || keys.length == i+1) {
 					col = 0;
 					table.appendChild(tr);
 					tr = null;
